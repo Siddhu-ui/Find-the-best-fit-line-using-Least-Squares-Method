@@ -1,6 +1,9 @@
 # Implementation of Univariate Linear Regression
-## AIM:
-To implement univariate Linear Regression to fit a straight line using least squares.
+# Developed by: Siddharth S
+# RegisterNumber: 212224040317 
+
+## AIM: To implement univariate Linear Regression to fit a straight line using least squares.
+
 
 ## Equipments Required:
 1. Hardware – PCs
@@ -20,13 +23,58 @@ To implement univariate Linear Regression to fit a straight line using least squ
 ```
 /*
 Program to implement univariate Linear Regression to fit a straight line using least squares.
-Developed by: 
-RegisterNumber:  
+#Program to implement univariate Linear Regression to fit a straight line using least squares.
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Input values as lists, e.g., [1, 2, 3, 4]
+X = np.array(eval(input("Enter X values as a list: ")))
+Y = np.array(eval(input("Enter Y values as a list: ")))
+
+# Calculate means
+x_mean = np.mean(X)
+y_mean = np.mean(Y)
+
+# Initialize numerator and denominator
+num = 0
+demo = 0
+
+# Calculate slope (m)
+for i in range(len(X)):
+    num += (X[i] - x_mean) * (Y[i] - y_mean)
+    demo += (X[i] - x_mean) ** 2
+
+m = num / demo
+
+# Calculate intercept (b)
+b = y_mean - m * x_mean
+
+# Predict Y values
+y_pred = m * X + b
+
+# Output results
+print("Slope:", m)
+print("Intercept:", b)
+print("Predicted values:", y_pred)
+
+# Plotting
+plt.scatter(X, Y, label="Original Data")
+plt.plot(X, y_pred, color="red", label="Regression Line")
+plt.title("Linear Regression Graph")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.legend()
+plt.show()
+
+
 */
 ```
 
 ## Output:
-![best fit line](sam.png)
+
+![alt text](<Screenshot 2025-04-11 232352.png>)
 
 
 ## Result:
